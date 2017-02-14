@@ -11,7 +11,7 @@ const path = require( 'path' );
 const cron = require( 'cron' );
 
 function setCameraCron( schedule ) {
-	const cmd = path.resolve( path.join( __dirname, '..', 'biab' ) ) + ' camera-take-photo';
+	const cmd = path.resolve( path.join( __dirname, '..', '..', 'biab' ) ) + ' camera-take-photo';
 	const success = () => {
 		this.emit( 'result', 'scheduled' );
 	};
