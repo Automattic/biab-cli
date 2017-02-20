@@ -21,10 +21,10 @@ function report( commandData ) {
 	} )
 	.then( response => {
 		debug( 'Post ' + response.id + ' created: ' + response.link );
-		emitter.emit( 'report-published', response );
+		this.emit( 'sensehat-report-published', response );
 	} )
 	.catch( error => {
-		emitter.emit( 'error', 'Unable to save report to WP - ' + error.message );
+		this.emit( 'error', 'Unable to save report to WP - ' + error.message );
 	})
 }
 
