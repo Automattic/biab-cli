@@ -15,6 +15,11 @@ const settings = require( './settings' );
 const dataToWP = require( './data-to-wp' );
 const capture = require( './capture' );
 const display = require( './display' );
+const report = require( './report' );
+
+function returnPost( post ) {
+	this.emit( 'result', JSON.stringify( { id: post.id } ) );
+}
 
 module.exports = function( emitter ) {
 	const conf = config.get( constants.settings, constants.defaults );
@@ -25,6 +30,8 @@ module.exports = function( emitter ) {
 	emitter.on( 'sensehat-reading', dataToWP );
 	emitter.on( 'sensehat-settings', schedule );
 	emitter.on( 'sensehat-settings', settings );
+	emitter.on( 'sensehat-report', report );
+	emitter.on( 'sensehat-report-published', returnPost );
 
 	// Display output
 	if ( conf.display ) {
