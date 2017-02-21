@@ -22,10 +22,10 @@ function saveDevices( param ) {
 	const parts = param.split( ' ' );
 
 	if ( parts.length === 3 ) {
-		config.set( DEVICE_CONFIG, parts[0].split( ',' ) );
+		config.set( DEVICE_CONFIG, parts[ 0 ].split( ',' ) );
 		config.set( WP_CONFIG, {
-			directory: parts[1],
-			rest: parts[2],
+			directory: parts[ 1 ],
+			rest: parts[ 2 ],
 		} );
 
 		this.emit( 'result', 'ok' );
@@ -34,7 +34,7 @@ function saveDevices( param ) {
 	}
 }
 
-const enableDevice = ( device, emitter ) => devices[device] ? devices[device]( emitter ) : false;
+const enableDevice = ( device, emitter ) => devices[ device ] ? devices[ device ]( emitter ) : false;
 
 module.exports = function( emitter ) {
 	const enabled = config.get( DEVICE_CONFIG, [] );
@@ -46,4 +46,4 @@ module.exports = function( emitter ) {
 
 	// Listen for device config
 	emitter.on( 'devices', saveDevices );
-}
+};

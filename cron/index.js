@@ -6,8 +6,8 @@ const debug = require( 'debug' )( 'biab:cron' );
 const exec = require( 'child_process' ).exec;
 
 const splitSchedule = sched => sched.split( ' ' );
-const getInterval = sched => splitSchedule( sched ).length > 0 ? Math.max( 0, parseInt( splitSchedule( sched )[0], 10 ) ) : 0;
-const getPeriod = sched => splitSchedule( sched ).length > 1 ? splitSchedule( sched )[1] : false;
+const getInterval = sched => splitSchedule( sched ).length > 0 ? Math.max( 0, parseInt( splitSchedule( sched )[ 0 ], 10 ) ) : 0;
+const getPeriod = sched => splitSchedule( sched ).length > 1 ? splitSchedule( sched )[ 1 ] : false;
 const isValidPeriod = period => [ 'minute', 'hour', 'day' ].includes( period );
 
 function intervalAsCron( interval, period ) {
@@ -20,33 +20,33 @@ function intervalAsCron( interval, period ) {
 	}
 }
 
-function updateCrontab( command, interval, success_cb, error_cb ) {
+function updateCrontab( command, interval, successCallback, errorCallback ) {
 	const cmd = `( crontab -l | grep -v -F "${ command }" ; echo "${ interval } ${ command }" ) | crontab -`;
 
 	debug( 'Adding to cron: ' + interval );
 	debug( 'Crontab comamnd: ' + cmd );
 
-	exec( cmd, ( error, stdout ) => {
+	exec( cmd, ( error ) => {
 		if ( error ) {
-			return error_cb( 'Failed to schedule: ' + error.message );
+			return errorCallback( 'Failed to schedule: ' + error.message );
 		}
 
-		return success_cb();
+		return successCallback();
 	} );
 }
 
-function removeCrontab( command, success_cb, error_cb ) {
+function removeCrontab( command, successCallback, errorCallback ) {
 	const cmd = `( crontab -l | grep -v -F "${ command }" ) | crontab -`;
 
 	debug( 'Removing from cron' );
 	debug( 'Crontab comamnd: ' + cmd );
 
-	exec( cmd, ( error, stdout ) => {
+	exec( cmd, ( error ) => {
 		if ( error ) {
-			return error_cb( 'Failed to schedule: ' + error.message );
+			return errorCallback( 'Failed to schedule: ' + error.message );
 		}
 
-		return success_cb();
+		return successCallback();
 	} );
 }
 
@@ -61,4 +61,4 @@ module.exports = function( command, schedule, success, error ) {
 	}
 
 	return removeCrontab( command, success, error );
-}
+};

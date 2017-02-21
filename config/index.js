@@ -12,7 +12,7 @@ function setConfig( section, value ) {
 	const config = getConfig();
 
 	debug( 'Writing to config: ' + section, value );
-	config[section] = value;
+	config[ section ] = value;
 
 	fs.writeFileSync( filename(), JSON.stringify( config, null, '\t' ) );
 }
@@ -28,9 +28,9 @@ function getConfig( section, defaults ) {
 	}
 
 	if ( section ) {
-		if ( config[section] ) {
-			debug( 'Section ' + section, config[section] );
-			return config[section];
+		if ( config[ section ] ) {
+			debug( 'Section ' + section, config[ section ] );
+			return config[ section ];
 		}
 
 		debug( 'Section ' + section + ' doesnt exist - using defaults', defaults );

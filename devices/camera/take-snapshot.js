@@ -12,7 +12,7 @@ const debug = require( 'debug' )( 'biab:camera:take-snapshot' );
 const config = require( 'config' );
 const constants = require( './constants' );
 
-function takePhoto( commandData ) {
+function takePhoto( ) {
 	const camera = config.get( constants.setting, constants.defaults );
 	const wp = config.get( 'wordpress', { directory: '/opt/wp' } );
 	const target = wp.directory + 'wp-content/uploads/snapshot.jpg';
@@ -23,7 +23,7 @@ function takePhoto( commandData ) {
 	exec( cmd, ( error, stdout, stderr ) => {
 		if ( error ) {
 			debug( 'Unable to open camera' );
-			this.emit( 'error', 'Unable to open camera' );
+			this.emit( 'error', 'Unable to open camera - ' + stderr );
 		} else {
 			debug( 'Photo taken - ' + stdout.length + ' bytes' );
 			this.emit( 'result', 'ok' );

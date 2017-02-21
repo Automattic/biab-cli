@@ -26,7 +26,7 @@ function createPost( emitter, media, title ) {
 	wp.posts()
 		.create( {
 			title: title,
-			featured_media: media.id,
+			featured_media: media.id, // eslint-disable-line camelcase
 			content: getImageContent( media ),
 			status: 'publish',
 		} )
@@ -36,7 +36,7 @@ function createPost( emitter, media, title ) {
 		} )
 		.catch( error => {
 			emitter.emit( 'error', 'Unable to save photo to WP - ' + error.message );
-		})
+		} );
 }
 
 function uploadPhoto( commandData, photo ) {

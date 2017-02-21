@@ -4,4 +4,4 @@ module.exports = {
 		display: true,
 		units: 'celsius',
 	}
-}
+};

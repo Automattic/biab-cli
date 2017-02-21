@@ -21,7 +21,7 @@ function takePhoto( commandData ) {
 	exec( cmd, { maxBuffer: 1024 * 10000, encoding: 'buffer' }, ( error, stdout, stderr ) => {
 		if ( error ) {
 			debug( 'Unable to open camera' );
-			this.emit( 'error', 'Unable to open camera' );
+			this.emit( 'error', 'Unable to open camera - ' + stderr );
 		} else {
 			debug( 'Photo taken - ' + stdout.length + ' bytes' );
 			this.emit( 'photo-to-wp', commandData, stdout );

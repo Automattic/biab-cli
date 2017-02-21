@@ -3,7 +3,6 @@
  */
 
 const debug = require( 'debug' )( 'biab:camera:settings' );
-const fs = require( 'fs' );
 
 /**
  * Internal dependencies

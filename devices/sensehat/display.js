@@ -30,11 +30,11 @@ function showReading( commandData ) {
 	setDisplay( 'show-message.py', temp + units );
 }
 
-function showCamera( commandData, json ) {
+function showCamera( ) {
 	setDisplay( 'show-image.py', __dirname + '/display/image/mean-face.png' );
 }
 
-function clearDisplay( commandData, json ) {
+function clearDisplay( ) {
 	setDisplay( 'clear.py' );
 }
 

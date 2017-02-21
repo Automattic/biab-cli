@@ -1,0 +1,15 @@
+{
+  "env": {
+	"node": true
+  },
+  "extends": "eslint-config-wpcalypso",
+  "plugins": [],
+  "rules": {
+	"max-len": 0
+  },
+  "parserOptions": {
+	"ecmaFeatures": {
+	  "experimentalObjectRestSpread": true
+	}
+  }
+}

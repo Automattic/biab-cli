@@ -1,3 +1,5 @@
+/* eslint-disable no-console, no-process-exit */
+
 /**
  * External dependencies
  */
@@ -12,10 +14,10 @@ const debug = require( 'debug' )( 'biab:main' );
  */
 
 const deviceEmitter = new EventEmitter();
-const devices = require( 'devices' )( deviceEmitter );
+const devices = require( 'devices' )( deviceEmitter ); // eslint-disable-line no-unused-vars
 
 if ( process.argv.length < 3 ) {
-	console.log( process.argv[1] + ': <command> [data]' );
+	console.log( process.argv[ 1 ] + ': <command> [data]' );
 	process.exit( 1 );
 }
 
@@ -39,4 +41,4 @@ function runCommand( emitter, command, commandData ) {
 	}
 }
 
-runCommand( deviceEmitter, process.argv[2], process.argv.length > 3 ? process.argv.slice( 3 ).join( ' ' ) : false );
+runCommand( deviceEmitter, process.argv[ 2 ], process.argv.length > 3 ? process.argv.slice( 3 ).join( ' ' ) : false );

@@ -10,9 +10,9 @@ function dataToWP( commandData ) {
 	const emitter = this;
 	wp.sensehat().create( commandData ).then( function( data ) {
 		emitter.emit( 'result', data );
-	}).catch( function( err ) {
+	} ).catch( function( err ) {
 		emitter.emit( 'error', 'Unable to send data to WordPress - ' + err.message );
-	});
+	} );
 }
 
 module.exports = dataToWP;

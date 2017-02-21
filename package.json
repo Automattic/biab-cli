@@ -4,7 +4,8 @@
   "description": "Blog In A Box",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "`npm bin`/eslint ."
   },
   "author": "",
   "license": "ISC",
@@ -14,20 +15,5 @@
     "eslint-config-wpcalypso": "^0.6.0",
     "eslint-plugin-wpcalypso": "^3.0.2",
     "wpapi": "^1.0.2"
-  },
-  "eslintConfig": {
-    "env": {
-      "node": true
-    },
-    "extends": [],
-    "plugins": [],
-    "rules": {
-      "max-len": 0
-    },
-    "parserOptions": {
-      "ecmaFeatures": {
-        "experimentalObjectRestSpread": true
-      }
-    }
   }
 }
