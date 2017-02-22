@@ -16,7 +16,7 @@ function saveSettings( settings ) {
 
 	debug( 'Sensehat settings: ' + settings );
 
-	if ( parts.length === 4 ) {
+	if ( parts.length === 5 ) {
 		const display = parts[ 2 ];
 		const units = parts[ 3 ];
 
