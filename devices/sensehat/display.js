@@ -31,7 +31,7 @@ function showReading( commandData ) {
 }
 
 function showCamera( ) {
-	setDisplay( 'show-image.py', __dirname + '/display/image/mean-face.png' );
+	setDisplay( 'show-image.py', __dirname + '/display/image/heart-8x8.png' );
 }
 
 function clearDisplay( ) {
