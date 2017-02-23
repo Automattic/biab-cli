@@ -11,7 +11,7 @@ const debug = require( 'debug' )( 'biab:sensehat:schedule-report' );
 
 const cron = require( 'cron' );
 
-function setSensehatCron( schedule ) {
+function setSensehatCron( commandData ) {
 	const cmd = path.resolve( path.join( __dirname, '..', '..', 'biab' ) ) + ' sensehat-report';
 	const success = () => {
 		this.emit( 'result', 'scheduled' );
@@ -36,7 +36,7 @@ function setSensehatCron( schedule ) {
 		const days = parts.length > 4 ? getDays( parts[ 4 ] ) : 0;
 		return days + ' day';
 	};
-	cron( cmd, getReportSchedule( schedule ), success, error );
+	cron( cmd, getReportSchedule( commandData ), success, error );
 }
 
 module.exports = setSensehatCron;
