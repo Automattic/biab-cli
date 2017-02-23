@@ -3,5 +3,6 @@ module.exports = {
 	defaults: {
 		display: true,
 		units: 'celsius',
+		report: 'never'
 	}
 };

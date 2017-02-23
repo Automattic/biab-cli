@@ -19,8 +19,13 @@ function saveSettings( settings ) {
 	if ( parts.length === 5 ) {
 		const display = parts[ 2 ];
 		const units = parts[ 3 ];
+		const report = parts[ 4 ];
 
-		config.set( constants.settings, { display: display === 'on' ? true : false, units: units } );
+		config.set( constants.settings, {
+			display: display === 'on' ? true : false,
+			units: units,
+			report: report
+		} );
 		this.emit( 'result', 'ok' );
 	}
 }
