@@ -2,12 +2,12 @@
 
 Blog In A Box for WordPress comes as two parts:
 
-- [WordPress plugin](https://github.com/tinkertinker/biab-plugin)
-- [CLI utility](https://github.com/tinkertinker/biab-cli)
+- [WordPress plugin](https://github.com/Automattic/biab-plugin)
+- [CLI utility](https://github.com/Automattic/biab-cli)
 
 ### WordPress Plugin
 
-The plugin may be found in the [companion repository](https://github.com/tinkertinker/biab-plugin) and it is installed as per a normal WordPress plugin.
+The plugin may be found in the [companion repository](https://github.com/Automattic/biab-plugin) and it is installed as per a normal WordPress plugin.
 
 ### CLI Utility Manual Installation
 
@@ -25,7 +25,7 @@ And add this line:
 
 The WordPress plugin will then have access to the `/opt/bloginabox/biab` CLI tool, and from here can trigger and receive data from hardware devices.
 
-Note: this is done automatically when using [Blog In A Box Installer](https://github.com/tinkertinker/biab-installer).
+Note: this is done automatically when using [Blog In A Box Installer](https://github.com/Automattic/biab-installer).
 
 ## CLI Utility
 
