@@ -1,6 +1,6 @@
 # Blog In A Box
 
-Blog In A Box for WordPress comes as two parts:
+[Blog In A Box](https://inabox.blog/) for WordPress comes as two parts:
 
 - [WordPress plugin](https://github.com/Automattic/biab-plugin)
 - [CLI utility](https://github.com/Automattic/biab-cli)
