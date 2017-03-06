@@ -2,8 +2,10 @@
  * External dependencies
  */
 
-const debug = require( 'debug' )( 'biab:cron' );
+const debug = require( 'debug' )( 'biab:cron:special' );
 const exec = require( 'child_process' ).exec;
+
+const specialStrings = [ 'daily', 'weekly', 'monthly' ];
 
 function updateCrontab( command, interval, successCallback, errorCallback ) {
 	const cmd = `( crontab -l | grep -v -F "${ command }" ; echo "${ interval } ${ command }" ) | crontab -`;
@@ -35,11 +37,13 @@ function removeCrontab( command, successCallback, errorCallback ) {
 	} );
 }
 
-const specialStrings = [ 'daily', 'weekly', 'monthly' ];
 module.exports = function( command, schedule, success, error ) {
-	debug( `Cron schedule: @"${ schedule }"` );
-	if ( specialStrings.indexOf( schedule ) > -1 ) {
-		return updateCrontab( command, '@' + schedule, success, error );
+	const special = specialStrings.find( item => schedule.indexOf( item ) !== -1 );
+
+	debug( `Cron schedule: @"${ schedule }" - ${ special }` );
+
+	if ( special ) {
+		return updateCrontab( command, '@' + special, success, error );
 	}
 
 	return removeCrontab( command, success, error );
