@@ -11,7 +11,7 @@ const debug = require( 'debug' )( 'biab:camera:photo-to-post' );
 const wp = require( 'wordpress' );
 
 const getPhotoName = () => 'photo-' + process.pid + '.jpg';
-const getPostTitle = title => title ? title : new Date().toLocaleString();
+const getPostTitle = title => title ? title : new Date().toLocaleTimeString();
 
 function getImageContent( media ) {
 	const { width, height } = media.media_details.sizes.large;
