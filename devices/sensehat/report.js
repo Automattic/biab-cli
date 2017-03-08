@@ -37,7 +37,7 @@ function report( ) {
 
 	wp.posts()
 	.create( {
-		title: new Date().toLocaleString(),
+		title: new Date().toLocaleTimeString(),
 		content: '[sensehat before="' + today + '" after="' + getAfter( ) + '"]',
 		status: 'publish',
 	} )
