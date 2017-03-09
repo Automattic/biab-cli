@@ -14,9 +14,9 @@ function intervalAsCron( interval, period ) {
 	if ( period === 'minute' ) {
 		return `*/${ Math.min( interval, 59 ) } * * * *`;
 	} else if ( period === 'hour' ) {
-		return `* */${ Math.min( interval, 23 ) } * * *`;
+		return `0 */${ Math.min( interval, 23 ) } * * *`;
 	} else if ( period === 'day' ) {
-		return `* * */${ interval } * *`;
+		return `0 0 */${ interval } * *`;
 	}
 }
 
