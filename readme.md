@@ -67,6 +67,32 @@ this.emit( 'result', 'data-to-be-returned' );
 
 The utility is run as the `pi` user, and has access to all devices that this user can access.
 
+## Debugging
+
+To debug problems edit `biab` and set and change the debug lines:
+
+```shell
+#DEBUGGER=
+DEBUGGER=biab:*
+```
+
+When you want to disable the debug mode then set it back to:
+
+```shell
+DEBUGGER=
+#DEBUGGER=biab:*
+```
+
+While enable a log of all actions will be output to `biab.log`:
+
+```log
+biab:main Command: "sensehat-capture" with data ""
+biab:sensehat:capture Capturing data: /usr/bin/python /opt/bloginabox/devices/sensehat/capture.py
+biab:sensehat:capture Data captured - temp=25.04471492767334 humidity=52.390140533447266 pressure=1019.79345703125 tp=25.089582443237305 th=24.999847412109375
+```
+
+This may be helpful in figuring out where a problem is.
+
 ## Contributing
 
 We welcome contributions in any form, and you can help reporting, testing, and detailing bugs.
